@@ -1,0 +1,10 @@
+shellEmulator: true
+
+packages:
+  - www/
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - vue-demi
+onlyBuiltDependencies:
+  - sharp
