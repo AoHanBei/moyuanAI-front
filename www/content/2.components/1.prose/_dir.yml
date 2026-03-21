@@ -1,3 +1,2 @@
-title: Prose Components
-navigation.redirect: /components/prose/markdown
-icon: lucide:letter-text
+﻿title: 正文组件
+navigation: false

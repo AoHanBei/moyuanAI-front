@@ -1,30 +1,10 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+﻿// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: ['..'],
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'zhcn',
     locales: [
-      {
-        code: 'en',
-        name: 'English',
-        language: 'en-US',
-      },
-      {
-        code: 'fr',
-        name: 'Français',
-        language: 'fr-FR',
-      },
-      {
-        code: 'km',
-        name: 'ភាសាខ្មែរ',
-        language: 'km-KH',
-      },
-      {
-        code: 'it',
-        name: 'Italiano',
-        language: 'it-IT',
-      },
       {
         code: 'zhcn',
         name: '简体中文',
@@ -45,3 +25,4 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-05-13',
 });
+

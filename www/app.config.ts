@@ -1,8 +1,8 @@
-export default defineAppConfig({
+﻿export default defineAppConfig({
   shadcnDocs: {
     site: {
-      name: 'shadcn-docs',
-      description: 'Beautifully designed Nuxt Content template built with shadcn-vue. Customizable. Compatible. Open Source.',
+      name: '墨圆大模型',
+      description: '这里，有大模型开发的一切，学大模型，关注我们就对了！',
       ogImage: '/hero.png',
       ogImageComponent: 'ShadcnDocs',
       ogImageColor: 'light',
@@ -26,7 +26,7 @@ export default defineAppConfig({
       border: true,
     },
     header: {
-      title: 'shadcn-docs',
+      title: '墨圆大模型',
       showTitle: true,
       logo: {
         light: '/logo.svg',
@@ -35,24 +35,30 @@ export default defineAppConfig({
       border: false,
       darkModeToggle: true,
       languageSwitcher: {
-        enable: true,
+        enable: false,
         triggerType: 'icon',
         dropdownType: 'select',
       },
       nav: [{
         title: 'Docs',
         links: [{
-          title: 'Getting Started',
+          title: '快速开始',
           to: '/getting-started',
           description: 'Start building your document with shadcn-docs-nuxt',
           icon: 'lucide:rocket',
         }, {
-          title: 'Components',
+          title: '大模型基础',
           to: '/components/prose',
           description: 'Explore available UI components and usage examples.',
           icon: 'lucide:box',
         }, {
-          title: 'API',
+          title: 'Prompt工程',
+          to: '/api/configuration/shadcn-docs',
+          description: 'Discover the configurations and exposed APIs.',
+          target: '_self',
+          icon: 'lucide:code',
+        }, {
+          title: 'Agent开发',
           to: '/api/configuration/shadcn-docs',
           description: 'Discover the configurations and exposed APIs.',
           target: '_self',
@@ -114,11 +120,7 @@ export default defineAppConfig({
       codeCopyToast: false,
       codeCopyIcon: 'lucide:clipboard',
       editLink: {
-        enable: true,
-        pattern: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt/edit/main/www/content/:path',
-        text: 'Edit this page',
-        icon: 'lucide:square-pen',
-        placement: ['docsFooter'],
+        enable: false,
       },
       backToTop: true,
       codeIcon: {
@@ -168,35 +170,8 @@ export default defineAppConfig({
     },
     footer: {
       border: true,
-      credits: 'FOOTER_CREDIT',
-      links: [
-        {
-          icon: 'lucide:heart',
-          title: 'Sponsor Me',
-          to: 'https://ko-fi.com/ztl_uwu',
-          target: '_blank',
-        },
-        {
-          icon: 'lucide:twitter',
-          to: 'https://x.com/ZTL_UwU',
-          target: '_blank',
-        },
-        {
-          icon: 'lucide-lab:butterfly',
-          to: 'https://bsky.app/profile/ztl-uwu.bsky.social',
-          target: '_blank',
-        },
-        {
-          icon: 'simple-icons:discord',
-          to: 'https://discord.gg/9P5HzAz8DT',
-          target: '_blank',
-        },
-        {
-          icon: 'lucide:github',
-          to: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt',
-          target: '_blank',
-        },
-      ],
+      credits: '',
+      links: [],
     },
     toc: {
       enable: true,
@@ -261,3 +236,5 @@ export default defineAppConfig({
     data: {},
   },
 });
+
+

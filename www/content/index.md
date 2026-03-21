@@ -1,22 +1,14 @@
 ---
-title: Home
+title: 首页
 navigation: false
 ---
 
 ::hero
 ---
-announcement:
-  title: 'v1.1 release'
-  icon: '🎉'
-  to: /blog/v1-1
 actions:
-  - name: Get Started
+  - name: 点击开始
     to: /getting-started/introduction
-  - name: GitHub
-    variant: outline
-    to: https://github.com/ZTL-UwU/shadcn-docs-nuxt
-    leftIcon: 'lucide:github'
-  - name: Sponsor
+  - name: 关注我们
     variant: outline
     target: _blank
     to: https://ko-fi.com/ztl_uwu
@@ -24,12 +16,43 @@ actions:
 ---
 
 #title
-Effortless and Beautiful :br Docs Template.
+墨圆大模型
 
 #description
-Beautifully designed Nuxt Content template built with shadcn-vue. :br Customizable. Compatible. Open Source.
+这里，有大模型开发的一切，学大模型，关注我们就对了！
 ::
 
-::div{class="border rounded-lg shadow-md"}
-  :iframe{src="/getting-started/introduction" height="700" width="100%" class="rounded-lg" scrolling="no" frameborder="0"}
+## 插图展示（可替换）
+
+::card-group{:cols="3"}
+  ::card
+  ---
+  img: /illustrations/placeholder-1.svg
+  ---
+  #title
+  首页插图一
+
+  #description
+  可替换为品牌主视觉图。
+  ::
+  ::card
+  ---
+  img: /illustrations/placeholder-2.svg
+  ---
+  #title
+  首页插图二
+
+  #description
+  可替换为产品功能示意图。
+  ::
+  ::card
+  ---
+  img: /illustrations/placeholder-3.svg
+  ---
+  #title
+  首页插图三
+
+  #description
+  可替换为课程/学习路径海报。
+  ::
 ::

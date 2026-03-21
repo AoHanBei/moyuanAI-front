@@ -1,3 +1,2 @@
-title: Page Components
-icon: lucide:laptop-minimal
-navigation.redirect: /components/page/accordion
+﻿title: 页面组件
+navigation: false
