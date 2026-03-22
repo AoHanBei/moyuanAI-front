@@ -83,8 +83,6 @@ const { page } = useContent();
 const config = useConfig();
 const appConfig = useAppConfig();
 
-const isDev = import.meta.dev;
-
 useSeoMeta({
   title: `${page.value?.title ?? '404'} - ${config.value.site.name}`,
   ogTitle: page.value?.title,
@@ -93,8 +91,10 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 });
 
-defineOgImageComponent(config.value.site.ogImageComponent, {
-  title: page.value?.title,
-  description: page.value?.description,
-});
+if (page.value?.body && !import.meta.dev) {
+  defineOgImageComponent(config.value.site.ogImageComponent, {
+    title: page.value?.title,
+    description: page.value?.description,
+  });
+}
 </script>

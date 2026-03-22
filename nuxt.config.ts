@@ -32,6 +32,14 @@ export default defineNuxtConfig({
   },
   i18n: {
     strategy: 'prefix_except_default',
+    defaultLocale: 'en',
+  },
+  hooks: {
+    // Work around mixed Nuxt/Nitro prepare:types payloads where sharedTsConfig may be missing.
+    'prepare:types': (opts) => {
+      opts.sharedTsConfig ||= {};
+      opts.sharedTsConfig.compilerOptions ||= {};
+    },
   },
   colorMode: {
     classSuffix: '',
@@ -78,6 +86,11 @@ export default defineNuxtConfig({
     },
   },
   fonts: {
+    provider: 'local',
+    providers: {
+      google: false,
+      googleicons: false,
+    },
     defaults: {
       weights: ['300 800'],
     },
