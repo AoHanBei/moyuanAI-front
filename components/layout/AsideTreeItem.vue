@@ -65,10 +65,12 @@ const collapsed = useCollapsedMap();
 const route = useRoute();
 
 function defaultOpen() {
-  if (route.path.includes(link._path))
-    return true;
   if (link.collapse !== undefined)
     return !link.collapse;
+  if (collapse)
+    return false;
+  if (route.path.includes(link._path))
+    return true;
 
   return level < collapseLevel && !collapse;
 }

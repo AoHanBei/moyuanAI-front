@@ -5,9 +5,10 @@
         {{ $t('Customize') }}
       </h1>
       <p class="text-muted-foreground text-sm">
-        {{ $t('Pick a style and color for the docs.') }}
+        {{ $t('Pick a color and theme for the docs.') }}
       </p>
     </div>
+
     <div class="space-y-1.5">
       <UiLabel>{{ $t('Color') }}</UiLabel>
       <div class="grid grid-cols-3 gap-2">
@@ -26,21 +27,7 @@
         </template>
       </div>
     </div>
-    <div class="space-y-1.5">
-      <UiLabel>{{ $t('Radius') }}</UiLabel>
-      <div class="grid grid-cols-5 gap-2">
-        <template v-for="r in RADII" :key="r">
-          <UiButton
-            class="justify-center gap-2"
-            variant="outline"
-            :class="{ 'border-primary border-2': radius === r }"
-            @click="setRadius(r)"
-          >
-            <span class="text-xs capitalize">{{ r }}</span>
-          </UiButton>
-        </template>
-      </div>
-    </div>
+
     <div v-if="darkModeToggle" class="space-y-1.5">
       <UiLabel>{{ $t('Theme') }}</UiLabel>
       <div class="grid grid-cols-3 gap-2">
@@ -79,24 +66,12 @@
 <script setup lang="ts">
 import { themes } from '@/lib/themes';
 
-const { setClassTheme, theme, radius, setTheme, setRadius, allColors } = useThemes();
+const { setClassTheme, theme, setTheme, allColors } = useThemes();
 const { darkModeToggle } = useConfig().value.header;
 
-const RADII = [0, 0.25, 0.5, 0.75, 1];
-
-// Whenever the theme value changes, update the document class list
 watch(theme, () => {
   setClassTheme();
 });
-
-// Whenever the radius value changes, update the document style
-watch(radius, () => {
-  setStyleRadius();
-});
-
-function setStyleRadius() {
-  document.body.style.setProperty('--radius', `${radius.value}rem`);
-}
 
 function backgroundColor(color: Color) {
   const bg = themes.find(theme => theme.name === color);

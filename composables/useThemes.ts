@@ -3,8 +3,9 @@ import { themes } from '@/lib/themes';
 
 interface Config {
   theme?: Theme['name'];
-  radius: number;
 }
+
+const FIXED_RADIUS = 0.75;
 
 export function useThemes() {
   const { value: color } = useColorMode();
@@ -14,11 +15,9 @@ export function useThemes() {
   const config = useCookie<Config>('theme', {
     default: () => ({
       theme: defaultTheme.color as Color,
-      radius: defaultTheme.radius,
     }),
   });
 
-  // Create an array of color values
   const allColors: Color[] = [
     'zinc',
     'rose',
@@ -35,16 +34,15 @@ export function useThemes() {
   ];
 
   const theme = computed(() => config.value.theme);
-  const radius = computed(() => config.value.radius);
-
+  const radius = computed(() => FIXED_RADIUS);
   const themeClass = computed(() => `theme-${theme.value}`);
 
   function setTheme(themeName: Theme['name']) {
     config.value.theme = themeName;
   }
 
-  function setRadius(newRadius: number) {
-    config.value.radius = newRadius;
+  function setRadius() {
+    // radius is fixed at 0.75rem
   }
 
   function setClassTheme() {
@@ -52,6 +50,7 @@ export function useThemes() {
       ...allColors.map(color => `theme-${color}`),
     );
     document.body.classList.add(themeClass.value);
+    document.body.style.setProperty('--radius', `${FIXED_RADIUS}rem`);
   }
 
   const themePrimary = computed(() => {
