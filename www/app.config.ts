@@ -56,7 +56,7 @@ export default defineAppConfig({
           showLinkIcon: false,
         },
         {
-          title: '面试与资料',
+          title: '面试题',
           to: '/interview-resources',
           showLinkIcon: false,
         },
@@ -68,9 +68,9 @@ export default defineAppConfig({
       ],
       links: [
         {
-          icon: 'lucide:github',
-          to: 'https://github.com/AoHanBei/moyuanAI-front',
-          target: '_blank',
+          icon: 'lucide:qr-code',
+          to: '/about/contact',
+          target: '_self',
         },
       ],
     },

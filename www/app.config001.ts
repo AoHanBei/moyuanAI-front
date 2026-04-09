@@ -129,7 +129,7 @@ export default defineAppConfig({
           icon: 'lucide:building',
         }],
       }, {
-        title: '面试与资料',
+        title: '面试题',
         links: [{
           title: '高频术语',
           to: '/interview-resources/glossary',

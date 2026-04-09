@@ -1,7 +1,7 @@
 <template>
   <nav class="flex items-center gap-2 xl:gap-3">
     <NuxtLinkLocale
-      v-for="(item, i) in nav"
+      v-for="(item, i) in visibleNav"
       :key="i"
       :to="localePath(item.to)"
       :target="item.target"
@@ -21,6 +21,7 @@
 const { nav } = useConfig().value.header;
 const { localePath } = useI18nDocs();
 const route = useRoute();
+const visibleNav = computed(() => nav.filter(item => item.to === '/interview-resources'));
 
 function isActive(to?: string) {
   if (!to)

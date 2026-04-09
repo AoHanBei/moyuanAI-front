@@ -102,3 +102,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  @media (min-width: 768px) {
+    .min-h-screen > .container {
+      grid-template-columns: 300px minmax(0, 1fr) !important;
+    }
+
+    aside nav a {
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+      line-height: 1.45 !important;
+      height: auto !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .min-h-screen > .container {
+      grid-template-columns: 340px minmax(0, 1fr) !important;
+    }
+  }
+}
