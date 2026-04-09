@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+﻿@import 'tailwindcss';
 
 @config '../../tailwind.config.js';
 
@@ -59,7 +59,7 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
    
   .dark {
@@ -100,5 +100,27 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  @media (min-width: 768px) {
+    .min-h-screen > .container {
+      grid-template-columns: 300px minmax(0, 1fr) !important;
+    }
+
+    aside nav a {
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+      line-height: 1.45 !important;
+      height: auto !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .min-h-screen > .container {
+      grid-template-columns: 340px minmax(0, 1fr) !important;
+    }
   }
 }

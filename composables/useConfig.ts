@@ -23,7 +23,7 @@ const defaultConfig: DefaultConfig = {
   theme: {
     customizable: true,
     color: 'zinc',
-    radius: 0.5,
+    radius: 0.75,
   },
   banner: {
     enable: false,

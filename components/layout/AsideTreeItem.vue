@@ -64,25 +64,45 @@ const { collapse, collapseLevel, folderStyle: defaultFolderStyle } = useConfig()
 const collapsed = useCollapsedMap();
 const route = useRoute();
 
+function normalizePath(p: string) {
+  const out = p.replace(/\/+$/, '');
+  return out === '' ? '/' : out;
+}
+
+function isInSection(currentPath: string, sectionPath: string) {
+  const current = normalizePath(currentPath);
+  const section = normalizePath(sectionPath);
+  return current === section || current.startsWith(`${section}/`);
+}
+
 function defaultOpen() {
-  if (route.path.includes(link._path))
+  // Always unfold the section that contains the current page,
+  // so users can immediately see where they are in the sidebar.
+  if (link.children && isInSection(route.path, link._path))
     return true;
   if (link.collapse !== undefined)
     return !link.collapse;
+  if (collapse)
+    return false;
 
   return level < collapseLevel && !collapse;
 }
 
-const isOpen = ref(collapsed.value.get(link._path) || defaultOpen());
+const savedState = collapsed.value.get(link._path);
+const isOpen = ref(savedState ?? defaultOpen());
 
 watch(isOpen, (v) => {
   collapsed.value.set(link._path, v);
 });
 
-function normalizePath(p: string) {
-  const out = p.replace(/\/+$/, '');
-  return out === '' ? '/' : out;
-}
+watch(
+  () => route.path,
+  (path) => {
+    if (link.children && isInSection(path, link._path) && !isOpen.value)
+      isOpen.value = true;
+  },
+);
+
 const isActive = computed(() => normalizePath(link._path) === normalizePath(route.path));
 
 const folderStyle = computed(() => link.sidebar?.style ?? defaultFolderStyle);
